@@ -34,6 +34,24 @@ console.log( recipe.ingredients.join('\n') );
 // - Iterate through the array of books. For each book, log the book title and book author like so: "The Hobbit by J.R.R. Tolkien".
 // - Now use an if/else statement to change the output depending on whether you read it yet or not. If you read it, log a string like 'You already read "The Hobbit" by J.R.R. Tolkien', and if not, log a string like 'You still need to read "The Lord of the Rings" by J.R.R. Tolkien.'
 
+const library = [
+    { title: 'The Hobbit', author: 'J.R.R. Tolkien', alreadyRead: true },
+    { title: 'The Lord of the Rings', author: 'J.R.R. Tolkien', alreadyRead: false },
+    { title: 'The Tournament', author: 'John Clarke', alreadyRead: true }
+];
+
+for (let i = 0; i < library.length; i++) {
+    const book = library[i];
+
+    const bookInfo = `"${ book.title }" by ${ book.author }`; // DRY
+
+    if (book.alreadyRead) {
+        console.log( `You already read ${ bookInfo }.` );
+    } else {
+        console.log( `You still need to read ${ bookInfo }.` );
+    }
+}
+
 // ## The Movie Database
 
 // It's like IMDB, but much much smaller!
@@ -41,6 +59,22 @@ console.log( recipe.ingredients.join('\n') );
 // - Create an object to store the following information about your favorite movie: title (a string), duration (a number), and stars (an array of strings).
 // - Create a function to print out the movie information like so: "Puff the Magic Dragon lasts for 30 minutes. Stars: Puff, Jackie, Living Sneezes."
 
+const favouriteMovie = {
+    title: 'O Brother! Where Art Thou?',
+    duration: 107,
+    stars: ['George Clooney', 'John Goodman', 'Gillian Welch', 'That Really Slinty Guy']
+};
 
+const ghostbusters = {
+    title: 'Ghostbusters',
+    duration: 105,
+    stars: ['Bill Murray', 'Dan Akroyd', 'Sigourney Weaver']
+};
 
+const movieInfo = function (movie) {
+    const info = `${ movie.title } lasts for ${ movie.duration } minutes. Stars: ${ movie.stars.join(', ') }.`;
+    console.log(info);
+};
 
+movieInfo(favouriteMovie);
+movieInfo(ghostbusters);
