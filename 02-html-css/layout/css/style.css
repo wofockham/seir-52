@@ -1,0 +1,60 @@
+/* * { border: 1px solid limegreen; } */
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
+
+body {
+    background-color: #222; /* shortcut for #222222 */
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+}
+
+.container {
+    max-width: 960px; /* poor person's lazy responsive container */
+    margin: 0 auto; /* centers the container */
+    background-color: #ccc;
+    padding: 1em; /* a chunky pixel */
+    border-bottom-right-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+
+nav {
+    text-align: right;
+}
+
+nav a {
+    color: green;
+}
+
+h1 {
+    text-align: center;
+    background-color: #222;
+    color: #ccc;
+    font-size: 400%;
+    padding: 0.5em;
+    text-transform: uppercase; /* Accessible ALL CAPS */
+}
+
+main {
+    display: inline-block;
+    width: 75%;
+}
+
+main img {
+    display: block; /* Can't set margins on display: inline (which is the default for img) */
+    margin: 0 auto;
+}
+
+aside {
+    display: inline-block;
+    width: 21%; /* 75% + 21% =~ 100% */
+    vertical-align: top;
+    background-color: #cfc; /* IRL: have better taste and choose a better color */
+    padding: 1em;
+    border-radius: 0.5em;
+    box-shadow: 0px 15px 15px black; /* makes it pop */
+}
+
+aside ul {
+    padding-left: 16px;
+}
