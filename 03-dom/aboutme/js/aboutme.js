@@ -17,5 +17,7 @@ for (let i = 0; i < lis.length; i++) {
     item.className = 'listitem';
 }
 
-
 // Create a new img element and set its src attribute to a picture of you. Append that element to the page.
+const image = document.createElement('img'); // detached DOM node
+image.src = 'http://www.fillmurray.com/250/400';
+document.body.appendChild(image);
