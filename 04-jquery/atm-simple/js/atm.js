@@ -1,12 +1,12 @@
 const checkForZero = function () {
     $('.zero').removeClass('zero');
 
-    const checkingBalance = $('#checking-balance').text().slice(1);
+    const checkingBalance = + $('#checking-balance').text().slice(1);
     if (checkingBalance <= 0) {
         $('#checking-balance').addClass('zero');
     }
 
-    const savingsBalance = $('#savings-balance').text().slice(1);
+    const savingsBalance = + $('#savings-balance').text().slice(1);
     if (savingsBalance <= 0) {
         $('#savings-balance').addClass('zero');
     }
