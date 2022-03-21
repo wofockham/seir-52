@@ -1,0 +1,25 @@
+/* 
+
+Typically we set the new sizing rules once and for all, for every element on the page:
+
+* {
+    box-sizing: border-box;
+}
+
+(* is the wildcard selector for "everything")
+
+*/
+
+
+.old {
+    width: 300px;
+    height: 300px;
+    border: 5px solid black;
+}
+
+.new {
+    box-sizing: border-box;
+    width: 300px;
+    height: 300px;
+    border: 5px solid black;
+}
