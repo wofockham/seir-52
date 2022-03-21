@@ -45,7 +45,7 @@ const accounts = {
         } else if (amount <= this.total()) {
             const difference = amount - this.savingsBalance;
             this.savingsBalance = 0;
-            this.checkingBalance -= this.savingsBalance;
+            this.checkingBalance -= difference;
         }
     }
 };

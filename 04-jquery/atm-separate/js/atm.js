@@ -3,7 +3,6 @@
 // It simply connects the DOM elements to logical/business functions in account.js
 
 // Lots of event handlers and all the DOM manipulation.
-
 const render = function () {
     // Our handy render() function updates every single part of the DOM with the
     // latest values from our accounts objects.
@@ -21,28 +20,30 @@ const render = function () {
     }
 };
 
-render();
-
-$('#checking-deposit').on('click', function () {
-    const amount = $('#checking-amount').val();
-    accounts.checkingDeposit(amount);
+$(document).ready(function () {
     render();
-});
-
-$('#checking-withdraw').on('click', function () {
-    const amount = $('#checking-amount').val();
-    accounts.checkingWithdraw(amount);
-    render();
-});
-
-$('#savings-deposit').on('click', function () {
-    const amount = $('#savings-amount').val();
-    accounts.savingsDeposit(amount);
-    render();
-});
-
-$('#savings-withdraw').on('click', function () {
-    const amount = $('#savings-amount').val();
-    accounts.savingsWithdraw(amount);
-    render();
+    
+    $('#checking-deposit').on('click', function () {
+        const amount = $('#checking-amount').val();
+        accounts.checkingDeposit(amount);
+        render();
+    });
+    
+    $('#checking-withdraw').on('click', function () {
+        const amount = $('#checking-amount').val();
+        accounts.checkingWithdraw(amount);
+        render();
+    });
+    
+    $('#savings-deposit').on('click', function () {
+        const amount = $('#savings-amount').val();
+        accounts.savingsDeposit(amount);
+        render();
+    });
+    
+    $('#savings-withdraw').on('click', function () {
+        const amount = $('#savings-amount').val();
+        accounts.savingsWithdraw(amount);
+        render();
+    });
 });
