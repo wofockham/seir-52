@@ -76,7 +76,6 @@ p users["Erik"][:favorite_numbers]
 p users["Erik"][:favorite_numbers].min
 
 # 1. How would you return an array of Anil's favorite numbers that are also even?
-
 evens = users["Anil"][:favorite_numbers].select do |num|
     num.even? # implicit return
 end
@@ -85,7 +84,6 @@ p evens
 # users["Anil"][:favorite_numbers].select &:even? # Goals
 
 # 1. How would you return an array of the favorite numbers common to all users?
-
 p users["Jonathan"][:favorite_numbers] & users["Erik"][:favorite_numbers] & users["Anil"][:favorite_numbers] & users["Jorge"][:favorite_numbers]
 
 # YOU ARE NOT EXPECTED TO UNDERSTAND THIS (yet)
@@ -94,4 +92,3 @@ p users["Jonathan"][:favorite_numbers] & users["Erik"][:favorite_numbers] & user
 # 1. How would you return an array containing all users' favorite numbers, sorted, and excluding duplicates?
 # YOU ARE NOT EXPECTED TO UNDERSTAND THIS (yet)
 p users.values.map { |user| user[:favorite_numbers] }.flatten.sort.uniq
-binding.pry
