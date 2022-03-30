@@ -1,15 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-</head>
-<body>
-    <h1>
-        Calculator coming soon
-    </h1>
+    <form action="/result">
+        <label>
+            First number:
+            <input type="number" name="x" placeholder="23" required>
+        </label>
 
-    <%= 2 + 3 %>
-</body>
-</html>
+        <label>
+            Operator:
+            <input name="operator" placeholder="+ or - or * or /" required>
+        </label>
+
+        <label>
+            Second number:
+            <input type="number" name="y" placeholder="23" required>
+        </label>
+
+        <button>Calculate</button>
+    </form>
