@@ -1,3 +1,9 @@
-Butterflies index coming soon
+<h1>All Butterflies</h1>
 
-<%= @butterflies %>
+<% @butterflies.each do |butterfly| %>
+    <p>
+        <a href="/butterflies/<%= butterfly["id"] %>">
+            <%= butterfly["name"] %>
+        </a>
+    </p>
+<% end %>
