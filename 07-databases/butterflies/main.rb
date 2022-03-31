@@ -14,11 +14,13 @@ get '/butterflies' do
 end
 
 # NEW
+# A blank form in which to describe a new butterfly
 get '/butterflies/new' do
     erb :butterflies_new
 end
 
 # CREATE
+# Inserts the parameters from the NEW form into the database
 post '/butterflies' do
     query_db "INSERT INTO butterflies (name, family, image) VALUES ('#{ params[:name] }', '#{ params[:family] }', '#{ params[:image] }')"
     redirect to('/butterflies') # GET
@@ -33,6 +35,7 @@ get '/butterflies/:id' do
 end
 
 # EDIT
+# A prefilled form in which to modify an existing butterfly
 get '/butterflies/:id/edit' do
     @butterfly = query_db "SELECT * FROM butterflies WHERE id=#{ params[:id] }"
     @butterfly = @butterfly.first # extract the butterfly from the array
@@ -40,12 +43,14 @@ get '/butterflies/:id/edit' do
 end
 
 # UPDATE
+# Updates the database with the parameters entered in the EDIT form
 post '/butterflies/:id' do
     query_db "UPDATE butterflies SET name='#{ params[:name] }', family='#{ params[:family] }', image='#{ params[:image] }' WHERE id=#{ params[:id] }"
     redirect to("/butterflies/#{ params[:id] }") # GET request
 end
 
 # DELETE
+# Deletes the butterfly entirely from the database
 get '/butterflies/:id/delete' do
     query_db "DELETE FROM butterflies WHERE id=#{ params[:id] }"
     redirect to('/butterflies') # choose your next victim
