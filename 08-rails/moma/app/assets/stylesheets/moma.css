@@ -14,3 +14,7 @@ body {
 .feature {
     max-height: 30em;
 }
+
+label {
+    display: block;
+}
