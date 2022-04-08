@@ -1,4 +1,5 @@
 class SessionController < ApplicationController
+  private
   def new
   end
 
