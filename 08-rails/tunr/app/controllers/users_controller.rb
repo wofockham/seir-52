@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       session[:user_id] = @user.id
+      flash[:message] = "Thank you for signing up"
       redirect_to root_path # you can redirect wherever you want
     else
       render :new # show them the form again so they can try again

@@ -1,5 +1,5 @@
-console.log('this is JAVASCRIPT coming at you');
+// console.log('this is JAVASCRIPT coming at you');
 
-$(document).ready(function () {
-    $('h1').fadeOut(5000);
-});
+// $(document).ready(function () {
+//     $('h1').fadeOut(5000);
+// });

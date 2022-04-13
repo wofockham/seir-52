@@ -10,7 +10,7 @@ class MixtapesController < ApplicationController
     @current_user.mixtapes << mixtape # Give the new mixtape to the current user
 
     # @current_user.mixtapes.create mixtape_params
-
+    flash[:message] = "Mixtape created!"
     redirect_to root_path # IRL redirect_to mixtape
   end
 

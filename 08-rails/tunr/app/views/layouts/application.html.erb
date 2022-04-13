@@ -10,20 +10,28 @@
   </head>
 
   <body>
-    <nav>
-      <%= link_to "Home", root_path %>
-      <% if @current_user.present? %>
-        <% if @current_user.admin? %>
-          <%= link_to "All users", users_path %>
+    <div class="container">
+      <nav>
+        <%= link_to "Home", root_path %>
+        <% if @current_user.present? %>
+          <% if @current_user.admin? %>
+            <%= link_to "All users", users_path %>
+          <% end %>
+          <%= link_to "New mixtape", new_mixtape_path %>
+          <%= link_to "Sign out #{ @current_user.email }", login_path, :method => 'delete' %>
+        <% else %>
+          <%= link_to "Sign up", new_user_path %>
+          <%= link_to "Sign in", login_path %>
         <% end %>
-        <%= link_to "New mixtape", new_mixtape_path %>
-        <%= link_to "Sign out #{ @current_user.email }", login_path, :method => 'delete' %>
-      <% else %>
-        <%= link_to "Sign up", new_user_path %>
-        <%= link_to "Sign in", login_path %>
-      <% end %>
-    </nav>
+      </nav>
 
-    <%= yield %>
+      <% if flash[:message].present? %>
+        <div class="alert alert-success" role="alert">
+          <%= flash[:message] %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
