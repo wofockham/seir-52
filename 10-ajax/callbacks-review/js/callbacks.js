@@ -33,10 +33,31 @@ const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 //   puts c
 // end
 
+// Traditional JS:
 // for (let i = 0; i < colors.length; i++) {
 //     console.log(colors[i]);
 // };
 
+// ES5:
 colors.forEach(function (c) {
     console.log(c);
+});
+
+// You are not expected to understand this (yet)
+const each = function (someArray, callbackFunction) {
+    for (let i = 0; i < someArray.length; i++) {
+        callbackFunction( someArray[i] );
+    }
+};
+
+each(colors, function (col) {
+    console.log('from my very own each()', col);
+});
+
+each(['Groucho', 'Harpo', 'Chico'], function (brother) {
+    console.log(`${ brother } Marx`);
+});
+
+each('AJAX', function (char) {
+    console.log(char.toLowerCase());
 });
