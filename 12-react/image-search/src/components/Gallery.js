@@ -5,10 +5,11 @@ import React from 'react';
 // It just returns JSX.
 // No `this`.
 
-const Gallery = () => {
+const Gallery = (props) => {
+    console.log(props);
     return (
         <div>
-            Gallery coming soon
+            { props.images.map((url) => <img src={url} key={url} />) }
         </div>
     );
 };
