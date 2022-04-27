@@ -6,20 +6,28 @@ const SERVER_URL = 'http://localhost:3000/secrets.json'; // Later: change this t
 class Secrets extends Component {
     constructor() {
         super();
-        // dummy/seed data -- to be replaced by AJAX
         this.state = {
-            secrets: [{"id":1,"content":"I like the smell of fishtanks","url":"http://localhost:3000/secrets/1.json"},{"id":2,"content":"I lick doorknobs","url":"http://localhost:3000/secrets/2.json"},{"id":3,"content":"I didn't lick all the mayonnaise off the spoon before stirring your coffee","url":"http://localhost:3000/secrets/3.json"}]
+            secrets: []
         };
         this.saveSecret = this.saveSecret.bind(this);
     }
 
+    // React life cycle methods
+    componentDidMount() {
+        const fetchSecrets = () => {
+            axios(SERVER_URL).then((response) => {
+                this.setState({secrets: response.data});
+                setTimeout(fetchSecrets, 5000); // a form of recursion // POLLING
+            });
+        };
+
+        fetchSecrets();
+    }
+
     saveSecret(content) {
-        // TODO: explain why this needs to be an arrow function
-        // you can't just AJAX anywhere
         axios.post(SERVER_URL, { content: content }).then((response) => {
-            console.log(response);
+            this.setState({secrets: [response.data, ...this.state.secrets]});
         });
-        // this.setState({secrets: [newSecret, ...this.state.secrets]});
     }
 
     render() {
