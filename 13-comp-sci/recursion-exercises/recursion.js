@@ -2,19 +2,37 @@
 // You will have to figure out what parameters to include
 // All functions must use recursion
 
-function findMax(){
+function findMax (array, largest=-Infinity){
     // This function returns the largest number in a given array.
-    console.log('HI JJ');
+    // base case
+    if (array.length === 0) {
+        return largest;
+    }
+
+    // do actual work
+    if (array[0] > largest) {
+        largest = array[0];
+    }
+
+    // recurse one step closer to the base case
+    const rest = array.slice(1);
+    return findMax(rest, largest);
 }
 
-function factorial(){
+function factorial (n){
     // This function returns the factorial of a given number.
+    return n == 1 ? 1 : n * factorial(n-1);
 }
 
-function fibonacci(){
+function fibonacci (n){
     // This function returns the Nth number in the fibonacci sequence.
     // https://en.wikipedia.org/wiki/Fibonacci_number
     // For this function, the first two fibonacci numbers are 1 and 1
+    if (n === 1 || n === 2) {
+        return 1;
+    } else {
+        return fibonacci(n-1) + fibonacci(n-2);
+    }
 }
 
 function coinFlips(){
