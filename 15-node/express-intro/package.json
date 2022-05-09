@@ -1,0 +1,20 @@
+{
+  "name": "express-intro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.7",
+    "express": "^4.18.1",
+    "underscore": "^1.13.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
