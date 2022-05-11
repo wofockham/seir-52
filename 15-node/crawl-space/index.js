@@ -12,6 +12,7 @@ const isCrawlable = (url) => {
     // });
 
     // return !terribleSiteDetected;
+
 };
 
 const c = new Crawler({
