@@ -1,4 +1,3 @@
-const expext = require('chai').expect;
 const { expect } = require('chai');
 const RomanNumerals = require('../RomanNumerals');
 
