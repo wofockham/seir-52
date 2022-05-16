@@ -1,5 +1,7 @@
 
 class SinglyLinkedList
+    include Enumerable # mixin
+
     class Node
         attr_accessor :value, :next
     
@@ -35,6 +37,11 @@ class SinglyLinkedList
 
     # TODO:
     def remove # AKA .shift() -- remove the first node
+        if @head
+            node = @head
+            @head = @head.next
+            node.value # implicitly return the value of the old head
+        end
     end
 
     def insert_after(node, new_value)
@@ -46,14 +53,27 @@ class SinglyLinkedList
 
     # Tricky
     def reverse # non-destructive
+        reversed_list = SinglyLinkedList.new
+        current_node = @head
+        while current_node
+            reversed_list.prepend(current_node.value)
+            current_node = current_node.next
+        end
+        reversed_list
     end
 
     # Trickier
     def reverse! # destructive
+        @head = self.reverse.head
     end
 
     # Trickiest
-    def each # how do you accept/invoke a do/end block?
+    def each
+        current_node = @head
+        while current_node
+            yield(current_node.value) if block_given?
+            current_node = current_node.next # walk/step through the list
+        end
     end
 
     # Bonus: .map(), .reduce(), .select(), .reject(), .length() AKA .size() AKA .count()
