@@ -21,3 +21,10 @@ holdUp(3000).then(() => {
 }).then(() => {
     console.log('also...');
 });
+
+const waitABit = async () => {
+    await holdUp(4000); // recreated Ruby's sleep()
+    console.log('continuing after 4 seconds');
+};
+
+waitABit();
